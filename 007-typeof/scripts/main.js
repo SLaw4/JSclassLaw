@@ -1,13 +1,11 @@
-let hot = 53; 
-console.log("Hot is 53 which is typeof ", (typeof hot))
+let word = "hello";
+let num = 12;
+let just = true;
 
-hot = "dog"; 
-console.log("Hot is dog which is typeof ", (typeof hot))
+console.log(word);
+console.log(num);
+console.log(just);
 
-hot = true; 
-console.log("Hot is true which is typeof ", (typeof hot))
-
-hot = 53; 
-const result = hot + "1"; 
-console.log("result of 53 + 1 is typeof - ", (typeof result)) 
- 
+console.log(typeof word);
+console.log(typeof num);
+console.log(typeof just);
