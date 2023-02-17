@@ -1,0 +1,1 @@
+# Week 5 Video 1 my thoughts
