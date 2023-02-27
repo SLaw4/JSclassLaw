@@ -15,7 +15,7 @@ console.log(doMoreMath(20, 30))
 
 //console.log(`this result was returned from the function ${result}`)
 
-
+//converted using arrow function
 totalVol = (x, y, z) => x * y * z
     
 console.log(`Total volume of the box is ${totalVol(2, 4, 2)} `)
