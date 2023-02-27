@@ -9,17 +9,16 @@ function doMath(a, b) {
     // console.log(`this is the result ${a / b}`)
 }
 
-const result = doMath(10, 4)
-console.log(`this result was returned from the function ${result}`)
+doMoreMath = (a, b) => a * b
+ 
+console.log(doMoreMath(20, 30))
+
+//console.log(`this result was returned from the function ${result}`)
 
 
-
-function totalVol(x, y, z) {
-    let total = x * y * z
-    return total
-}
-const total = totalVol(2, 10, 5)
-console.log(`Total volume of the box is ${total}`)
+totalVol = (x, y, z) => x * y * z
+    
+console.log(`Total volume of the box is ${totalVol(2, 4, 2)} `)
 
 
 function areaOfCircle(x) {
@@ -30,3 +29,6 @@ function areaOfCircle(x) {
 }
 const area = areaOfCircle(3)
 console.log(`The area of the circle is ${area}`)
+
+
+//So far I am enjoying the content the professor is providing. It's fairly easy to follow along and is engaging. Explanations are clear and done well. 
