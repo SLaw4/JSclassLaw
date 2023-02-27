@@ -18,9 +18,9 @@ function totalVol(x, y, z) {
     let total = x * y * z
     return total
 }
-
 const total = totalVol(2, 10, 5)
 console.log(`Total volume of the box is ${total}`)
+
 
 function areaOfCircle(x) {
     const pi = 3.14
@@ -28,6 +28,5 @@ function areaOfCircle(x) {
     let area = pi * x * x
     return area
 }
-
 const area = areaOfCircle(3)
 console.log(`The area of the circle is ${area}`)
