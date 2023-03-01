@@ -12,6 +12,7 @@ const updateDOM = (input) => {
 const trackMPGCost = (miles, gallons, price = 3.79) => {
     const MPG = miles/gallons
     const tripCost = MPG * price
+    return tripCost
     myArr.push(MPG, tripCost)
     myArr.splice(MPG, tripCost)
 }
