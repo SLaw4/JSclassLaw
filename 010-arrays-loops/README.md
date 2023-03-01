@@ -11,3 +11,7 @@ So I have taken a JavaScript course before that briefly covered arrays. My under
 # Trouble shooting 
 
 Ok so I played around with the code and was able to get the DOM to update by adding return tripCost to the trackMPGCost function. While working on the code I would backtrack and see where the code stopped working (aka getting input as undefined for the updateDOM function). However I'm not sure if that is the correct way to fix it since when I ran the code at the breakpoint, tripCost still out put 5.40 and not 162. 
+
+# Learning from DevTools
+
+Every lecture video so far has utilized DevTools which I am enjoying. Learning how to use scope and breakpoints is very helpful when troubleshooting and just to see what the code is actually doing. 
