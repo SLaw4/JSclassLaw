@@ -1,7 +1,7 @@
 //Update the DOM
 
-const myMPG = []
-const myTripCost = []
+const MY_MPG = []
+const MY_TRIP_COST = []
 
 const updateDOM = (input) => {
     const divEl = document.querySelector('#output')
@@ -14,30 +14,27 @@ const trackMPGandCost = (miles, gallons, price = 3.79) => {
     const MPG = Math.round(miles/gallons)
     const tripCost = Math.round(gallons * price)
     updateDOM(`Miles per gallon is ${MPG} and trip cost is ${tripCost}`)
-    myMPG.push(MPG)
-    myTripCost.push(tripCost)
+    MY_MPG.push(MPG)
+    MY_TRIP_COST.push(tripCost)
 }
 
-const calculateAvgMPG = () => {  
-    let totalMPG = 0
-    for (let i = 0; i < myMPG.length; i++ ) {
-        totalMPG = totalMPG + myMPG[i]
+const calculateSUM = (arr) => {
+    let sum = 0
+    for (let i = 0; i < arr.length; i ++) {
+        sum = sum + arr[i]
     }
-    let avgMPG = Math.round(totalMPG/myMPG.length)
+    return sum
+}
+
+const calculateAvg = () => {  
+    let sumMPG = calculateSUM(MY_MPG)
+    let sumTripCost = calculateSUM(MY_TRIP_COST)
+    let avgMPG = Math.round(sumMPG/MY_MPG.length)
+    let avgTripCost = Math.round(sumTripCost/MY_TRIP_COST.length)
     updateDOM(`Average MPG is ${avgMPG}`)
+    updateDOM(`Average trip is ${avgTripCost}`)
 }
 
-// calculateAvgCost
-// commit message = "my code for calc average cost"
-
-const calculateAvgCost = () => {  
-    let totalCost = 0
-    for (let i = 0; i < myTripCost.length; i++ ) {
-        totalCost = totalCost + myTripCost[i]
-    }
-    let avgTripCost = Math.round(totalCost/myTripCost.length)
-    updateDOM(`Average trip cost is ${avgTripCost}`)
-}
 
 trackMPGandCost(360, 15, 5.40)
 trackMPGandCost(320, 12, 5)
@@ -45,5 +42,4 @@ trackMPGandCost(100, 7, 4.40)
 trackMPGandCost(600, 24, 5.70)
 trackMPGandCost(50, 2, 3)
 trackMPGandCost(320, 12, 5)
-calculateAvgMPG()
-calculateAvgCost()
+calculateAvg()

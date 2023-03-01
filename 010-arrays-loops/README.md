@@ -15,3 +15,7 @@ Ok so I played around with the code and was able to get the DOM to update by add
 # Learning from DevTools
 
 Every lecture video so far has utilized DevTools which I am enjoying. Learning how to use scope and breakpoints is very helpful when troubleshooting and just to see what the code is actually doing. 
+
+# feedback for week 7 (refactor)
+
+For this week's material, I am able to follow along and understand the basics of what the professor is explaining. I can see the practicality of refactoring and modifying the code so it runs more cohesively and logically. However, if I hadn't already been exposed to the concept of loops, arrays and functions, I feel like it would be alot for someone to understand the logic of incorporating a function within a function that also contains a loop. It's a lot of jumping from one area to the next and it's happening kind of quickly for someone to really understand it. Again, if this was the first time someone is being exposed to loops and arrays, I feel like it would be easier to leave the code as it is and build on top of it rather than changing it so drastically. All in all, I am enjoying seeing how varied JavaScript can be written into more practical ways and am looking forward to seeing how to incorporate user input. 
