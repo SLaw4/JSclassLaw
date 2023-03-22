@@ -10,3 +10,9 @@
 
 
 # Also I had to move around and fix my folders to match yours, just in case you were wondering why there were so many changes in this commit 
+
+# User form validation experience
+# So like so many others I have filled out forms online. Many times they'll have a required field that I may not have input for but I cannot submit until that field is filled out. 
+
+# What needs to run when the user hits submit? 
+# When the user hits submit, the event listener should take the values from the form and plug them into the appropriate functions. 
