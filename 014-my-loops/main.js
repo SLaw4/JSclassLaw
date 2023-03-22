@@ -1,4 +1,4 @@
-//giDo While Loop
+//Do While Loop
 let a = 0
 do {
     a += 2
