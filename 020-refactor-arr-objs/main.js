@@ -15,11 +15,14 @@ const updateDOM = (input, id) => {
 }
 
 const trackMPGandCost = (obj) => {
-    const MPG = Math.round(miles/gallons)
-    const tripCost = Math.round(gallons * price)
+    const MPG = Math.round(obj.miles/obj.gallons)
+    const tripCost = Math.round(obj.gallons * obj.price)
     updateDOM(`Miles per gallon is ${MPG} and trip cost is ${tripCost}`, '#output')
+    obj.MPG = MPG
+    obj.tripCost = tripCost
     //MY_MPG.push(MPG)
     //MY_TRIP_COST.push(tripCost)
+    return obj
 }
 
 // const calculateSUM = (arr) => {
@@ -31,10 +34,14 @@ const trackMPGandCost = (obj) => {
 // }
 
 const calculateAvg = () => {  
-    let sumMPG = calculateSUM()
-    let sumTripCost = calculateSUM()
-    let avgMPG = Math.round(sumMPG/.length)
-    let avgTripCost = Math.round(sumTripCost/.length)
+    let sumMPG = 0
+    let sumTripCost = 0
+    MY_DATA.forEach(obj => {
+        sumMPG += obj.MPG
+        sumTripCost += obj.tripCost
+    })
+    let avgMPG = Math.round(sumMPG/MY_DATA.length)
+    let avgTripCost = Math.round(sumTripCost/MY_DATA.length)
     updateDOM(`Average MPG is ${avgMPG}`, '#output-avg')
     updateDOM(`Average trip cost is ${avgTripCost}`, '#output-avg')
 }
@@ -55,9 +62,15 @@ FORM.addEventListener('submit', (e) => {
         ERR.textContent = errMsg
     } 
     else {
+        const newDataObj = {
+            miles: miles,
+            gallons: gallons, 
+            price: price,
+        }
         ERR.textContent = ''
         AVG_OUTPUT.textContent = ''
-        trackMPGandCost(miles, gallons, price)
+        const updatedDataObj = trackMPGandCost(newDataObj)
+        MY_DATA.push(updatedDataObj)
         calculateAvg()
     }
     FORM.reset()
