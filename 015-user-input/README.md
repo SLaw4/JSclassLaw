@@ -16,3 +16,6 @@
 
 # What needs to run when the user hits submit? 
 # When the user hits submit, the event listener should take the values from the form and plug them into the appropriate functions. 
+
+# Did this lesson make sense?
+# For the most part the code makes sense. Just as a fyi the original code : trackMPGandCost(e.target.miles.value, e.target.gallons.value, e.target.price.value) works, it's just that the professor put 'values' instead of 'value.' 

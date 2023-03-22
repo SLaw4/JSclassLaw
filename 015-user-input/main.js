@@ -37,7 +37,12 @@ const calculateAvg = () => {
 }
 
 FORM.addEventListener('submit', (e) => {
-    console.log(e)
+    e.preventDefault()
+    const miles = parseInt(e.target.miles.value)
+    const gallons = parseInt(e.target.gallons.value)
+    const price = parseInt(e.target.price.value)
+    trackMPGandCost(miles, gallons, price)
+    //trackMPGandCost(e.target.miles.value, e.target.gallons.value, e.target.price.value)
 })
 // trackMPGandCost(360, 15, 5.40)
 // trackMPGandCost(320, 12, 5)
