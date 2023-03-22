@@ -39,16 +39,22 @@ const calculateAvg = () => {
 
 FORM.addEventListener('submit', (e) => {
     e.preventDefault()
-    const errMsg = []
+    let errMsg = []
     const miles = parseInt(e.target.miles.value)
     const gallons = parseInt(e.target.gallons.value)
     const price = parseInt(e.target.price.value)
-    if(miles === 0) {
+    if(miles === 0 || gallons === 0 || price === 0) {
         errMsg.push('Make sure you input value greater than 0')
     } 
+    if (price > 1000) {
+        errMsg.push('Really? I think this is an error...try again')
+    }
     if(errMsg.length > 0) {
         ERR.textContent = errMsg
-    } else {
+    } 
+    else {
+        ERR.textContent = ""
         trackMPGandCost(miles, gallons, price)
+        calculateAvg(miles, gallons, price)
     }
 })
