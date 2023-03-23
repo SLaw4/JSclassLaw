@@ -1,0 +1,5 @@
+# Week 9 feedback 
+
+# So after struggling to get week 9 finished, I can say moving forward will probably take some more effort and asking for help more often. I think providing more varied examples of a concept would help rather than just moving onto the next topic or subject. Like for the example of arrays of objects, I would have liked to practiced writing a simpler one on my own before having to refactor code that already has so many layers that interconnect with on another. 
+
+# In terms of understanding CRUD, I understand the concept but actually writing code would be incredibly challenging. Especially if the expectation is to write the code at the same level as the instructor who has years of experience with JavaScript and knows multiple ways of writing code and how the code works. Yes we are told to use devTools and have tutors and the instructor to help but I feel like providing clearer guidelines and instructions on where to start and how to go about writing the code would help a lot more. 
