@@ -11,3 +11,8 @@
   .error {
     color: red;
   }
+
+  table, th, td {
+    border: 1px solid blue; 
+    padding: 8px;
+  }

@@ -1,7 +1,10 @@
-const FORM = document.getElementById("form-input")
+/* Global const for updating DOM elements by their id */
+const FORM = document.getElementById('form-input')
 const ERR = document.getElementById('err')
 const AVG_OUTPUT = document.getElementById('output-avg')
+const TBL_OUTPUT = document.getElementById('table-out')
 
+/* MY_DATA is global array that will be updated by the uder with objects from form input values and calculate data */
 const MY_DATA = []
 
 /* updateDOM function takes in input (string value) and id (to dertermine DOM location to update) and create and updates DOM elements */
@@ -59,6 +62,19 @@ function isFormValid (miles, gallons, price) {
     }
 } 
 
+function renderTable() {
+    const tbl = document.createElement('table')
+    const headings = ['Miles Drive:', 'Gallons Used:', 'Price Paid:', 'Trip MPG', 'Trip Cost', 'Edit/Delete']
+    const tr = document.createElement('tr')
+    headings.forEach(function(heading) {
+        let th = document.createElement('th')
+        th.textContent = heading
+        tr.appendChild(th)
+    })
+    tbl.appendChild(tr)
+    TBL_OUTPUT.appendChild(tbl)
+}
+
 /* Evenlisteners for form submit button, checks validation and if valid saves data as an object into global array name MY_DATA */
 
 FORM.addEventListener('submit', (e) => {
@@ -72,6 +88,7 @@ FORM.addEventListener('submit', (e) => {
         AVG_OUTPUT.textContent = ''
         const dataObj = trackMPGandCost(miles, gallons, price)
         MY_DATA.push(dataObj)
+        renderTable()
         calculateAvg()
     }
     FORM.reset()
