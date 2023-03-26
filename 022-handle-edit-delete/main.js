@@ -83,7 +83,9 @@ function renderEditDelBtn(index) {
     // add eventlistener 
     // for edit, reference the obj in the array for the current row in the table and populate the form input fields
     editBtn.addEventListener('click', function(e) {
-        console.log(index)
+        MY_DATA[0].textContent 
+        tr.appendChild(index)
+
     })
     td.appendChild(editBtn);
     td.appendChild(delBtn);
