@@ -23,11 +23,11 @@ function trackMPGandCost (miles, gallons, price) {
     const tripCost = Math.round(gallons * price)
     updateDOM(`Miles per gallon is ${MPG} and trip cost is ${tripCost}`, '#output')
     return {
-        MPG: MPG,
-        tripCost: tripCost,
         miles: miles,
         gallons: gallons,
         price: price,
+        MPG: MPG,
+        tripCost: tripCost,
     }
 }
 
@@ -73,6 +73,21 @@ function renderTable() {
     })
     tbl.appendChild(tr)
     TBL_OUTPUT.appendChild(tbl)
+}    
+function renderColumns () {
+    const tbl = document.createElement('table')
+    const headings = ['Miles Drive:', 'Gallons Used:', 'Price Paid:', 'Trip MPG', 'Trip Cost', 'Edit/Delete']
+    MY_DATA.forEach(function(obj){
+        const tr = document.createElement('tr')
+        for (key in obj) {
+            let td = document.createElement('td')
+            td.textContent = obj[key]
+            tr.appendChild(td)
+        }
+        tbl.appendChild(tr)
+        TBL_OUTPUT.appendChild(tbl)
+    })
+
 }
 
 /* Evenlisteners for form submit button, checks validation and if valid saves data as an object into global array name MY_DATA */

@@ -13,3 +13,7 @@ My guess is starting in the updateDOM function because that's where new elements
 # How do we create the tr?
 
 I think to create the tr, we would probably start by creating another function that takes user input (miles, gallons, and price) and use the createElement method generate a row. Also you would probably need to reference the headings array in order to place the data accordingly. Afterwards, use appendChild and textContent to update the DOM.
+
+# How would you fix misaligned headings to data columns?
+
+Probably specify which position in the array should be lined up with a certain data column?
