@@ -62,7 +62,7 @@ function isFormValid (miles, gallons, price) {
     }
 } 
 
-function renderTable() {
+function renderTableHeadings() {
     const tbl = document.createElement('table')
     const headings = ['Miles Drive:', 'Gallons Used:', 'Price Paid:', 'Trip MPG', 'Trip Cost', 'Edit/Delete']
     const tr = document.createElement('tr')
@@ -72,11 +72,11 @@ function renderTable() {
         tr.appendChild(th)
     })
     tbl.appendChild(tr)
-    TBL_OUTPUT.appendChild(tbl)
+    return tbl
 }    
-function renderColumns () {
-    const tbl = document.createElement('table')
-    const headings = ['Miles Drive:', 'Gallons Used:', 'Price Paid:', 'Trip MPG', 'Trip Cost', 'Edit/Delete']
+function renderTable() {
+    const tbl = renderTableHeadings()
+    TBL_OUTPUT.appendChild(tbl)
     MY_DATA.forEach(function(obj){
         const tr = document.createElement('tr')
         for (key in obj) {
@@ -84,8 +84,18 @@ function renderColumns () {
             td.textContent = obj[key]
             tr.appendChild(td)
         }
+        
+        const btnTD = document.createElement('td'
+        )
+        const editBtn = document.createElement('button')
+        editBtn.textContent = 'edit'
+        const delBtn = document.createElement('button')
+        delBtn.textContent = 'delete'
+        btnTD.appendChild(editBtn)
+        btnTD.appendChild(delBtn)
+        tr.appendChild(btnTD)
         tbl.appendChild(tr)
-        TBL_OUTPUT.appendChild(tbl)
+       
     })
 
 }

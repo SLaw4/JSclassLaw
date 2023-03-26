@@ -17,3 +17,7 @@ I think to create the tr, we would probably start by creating another function t
 # How would you fix misaligned headings to data columns?
 
 Probably specify which position in the array should be lined up with a certain data column?
+
+# How to fix rendering table issue at the end of first assignment in week 10? 
+
+I think the rendering issue has something to do with the forEach loops? and possibly not specifying to not reiterate the previous data set once more. 
