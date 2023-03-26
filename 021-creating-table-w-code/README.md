@@ -24,3 +24,4 @@ I think the rendering issue has something to do with the forEach loops? and poss
 
 # Final questions/comments on this table
 
+Going over the code again with devTools, I still am finding trouble wrapping my head around forEach loops, the textContent method, appendChild method, and also arrays. These concepts are being introduced one after the other and then added onto the previous content fairly quickly I would say. Additionally I wonder if you can create the table rows and columns utilizing HTML as that would've been something I might have tried to do but I did like learning how to better use JavaScript to dynamically change the DOM. 
