@@ -21,3 +21,6 @@ Probably specify which position in the array should be lined up with a certain d
 # How to fix rendering table issue at the end of first assignment in week 10? 
 
 I think the rendering issue has something to do with the forEach loops? and possibly not specifying to not reiterate the previous data set once more. 
+
+# Final questions/comments on this table
+
