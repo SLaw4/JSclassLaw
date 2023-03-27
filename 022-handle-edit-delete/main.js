@@ -90,7 +90,8 @@ function renderEditDelBtn(index) {
     })
     delBtn.addEventListener('click', function(e){
        MY_DATA.splice(index, 1)
-       TBL_OUTPUT = ''
+       TBL_OUTPUT.innerHTML = ''
+       renderTable()
     }) 
     td.appendChild(editBtn);
     td.appendChild(delBtn);
@@ -99,28 +100,22 @@ function renderEditDelBtn(index) {
 }
 function renderTable() {
     TBL_OUTPUT.innerHTML = '';
-    const tbl = renderTableHeadings();
-    TBL_OUTPUT.appendChild(tbl);
-    MY_DATA.forEach(function (obj, index) {
-        const tr = document.createElement('tr');
-        for (key in obj) {
-            let td = document.createElement('td');
-            td.textContent = obj[key];
-            tr.appendChild(td);
-        }
+    if(MY_DATA.length !== 0) {
+        const tbl = renderTableHeadings();
+        TBL_OUTPUT.appendChild(tbl);
+        MY_DATA.forEach(function (obj, index) {
+            const tr = document.createElement('tr');
+            for (key in obj) {
+                let td = document.createElement('td');
+                td.textContent = obj[key];
+                tr.appendChild(td);
+            }
 
-        const btnTD = renderEditDelBtn(index);
-        // const editBtn = document.createElement('button')
-        // editBtn.textContent = 'edit'
-        // const delBtn = document.createElement('button')
-        // delBtn.textContent = 'delete'
-        // btnTD.appendChild(editBtn)
-        // btnTD.appendChild(delBtn)
-        tr.appendChild(btnTD);
-        tbl.appendChild(tr);
-
-    });
-
+            const btnTD = renderEditDelBtn(index);
+            tr.appendChild(btnTD);
+            tbl.appendChild(tr);
+        });
+    }
 }
 
 /* Evenlisteners for form submit button, checks validation and if valid saves data as an object into global array name MY_DATA */
