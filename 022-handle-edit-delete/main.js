@@ -83,10 +83,15 @@ function renderEditDelBtn(index) {
     // add eventlistener 
     // for edit, reference the obj in the array for the current row in the table and populate the form input fields
     editBtn.addEventListener('click', function(e) {
-        MY_DATA[0].textContent 
-        tr.appendChild(index)
-
+        FORM[0].value = MY_DATA[index].miles
+        FORM[1].value = MY_DATA[index].gallons
+        FORM[2].value = MY_DATA[index].price
+        MY_DATA.splice(index, 1)
     })
+    delBtn.addEventListener('click', function(e){
+       MY_DATA.splice(index, 1)
+       TBL_OUTPUT = ''
+    }) 
     td.appendChild(editBtn);
     td.appendChild(delBtn);
     return td;
