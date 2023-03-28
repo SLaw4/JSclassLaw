@@ -4,19 +4,18 @@ const ERR = document.getElementById('err');
 const AVG_OUTPUT = document.getElementById('output-avg');
 const TBL_OUTPUT = document.getElementById('table-out');
 
-/* MY_DATA is global array that will be updated by the uder with objects from form input values and calculate data */
+/* MY_DATA is global array that will be updated by the user with objects from form input values and calculate data */
 function getTripData() {
     const tripDataJSON = localStorage.getItem('tripdata')
-    const saveTripDataJSON = localStorage.setItem('tripdata')
     if(tripDataJSON !== null) {
         return JSON.parse(tripDataJSON)
-    } else if (saveTripDataJSON !== null) {
-        return JSON.stringify(saveTripDataJSON)
     } else {
         return []
     }
 }
-
+function saveTripData() {
+    localStorage.setItem('tripdata', JSON.stringify(MY_DATA))
+}
 const MY_DATA = getTripData();
 renderTable()
 /* updateDOM function takes in input (string value) and id (to dertermine DOM location to update) and create and updates DOM elements */
@@ -102,7 +101,7 @@ function renderEditDelBtn(index) {
     })
     delBtn.addEventListener('click', function(e){
        MY_DATA.splice(index, 1)
-       TBL_OUTPUT.innerHTML = ''
+       saveTripData()
        renderTable()
     }) 
     td.appendChild(editBtn);
@@ -143,6 +142,7 @@ FORM.addEventListener('submit', (e) => {
         AVG_OUTPUT.textContent = '';
         const dataObj = trackMPGandCost(miles, gallons, price);
         MY_DATA.push(dataObj);
+        saveTripData()
         renderTable();
         calculateAvg();
     }
