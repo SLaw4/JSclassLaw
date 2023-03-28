@@ -5,8 +5,20 @@ const AVG_OUTPUT = document.getElementById('output-avg');
 const TBL_OUTPUT = document.getElementById('table-out');
 
 /* MY_DATA is global array that will be updated by the uder with objects from form input values and calculate data */
-const MY_DATA = [];
+function getTripData() {
+    const tripDataJSON = localStorage.getItem('tripdata')
+    const saveTripDataJSON = localStorage.setItem('tripdata')
+    if(tripDataJSON !== null) {
+        return JSON.parse(tripDataJSON)
+    } else if (saveTripDataJSON !== null) {
+        return JSON.stringify(saveTripDataJSON)
+    } else {
+        return []
+    }
+}
 
+const MY_DATA = getTripData();
+renderTable()
 /* updateDOM function takes in input (string value) and id (to dertermine DOM location to update) and create and updates DOM elements */
 
 function updateDOM(input, id) {
