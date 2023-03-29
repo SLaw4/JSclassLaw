@@ -1,4 +1,5 @@
 import {renderTable} from "./render.js";
+import { getTripData, saveTripData } from "./storage.js";
 /* Global const for updating DOM elements by their id */
 const FORM = document.getElementById('form-input');
 const ERR = document.getElementById('err');
@@ -6,21 +7,10 @@ const AVG_OUTPUT = document.getElementById('output-avg');
 
 
 /* MY_DATA is global array that will be updated by the user with objects from form input values and calculate data */
-function getTripData() {
-    const tripDataJSON = localStorage.getItem('tripdata')
-    if(tripDataJSON !== null) {
-        return JSON.parse(tripDataJSON)
-    } else {
-        return []
-    }
-}
-function saveTripData() {
-    localStorage.setItem('tripdata', JSON.stringify(MY_DATA))
-}
 const MY_DATA = getTripData();
 renderTable(MY_DATA)
-/* updateDOM function takes in input (string value) and id (to dertermine DOM location to update) and create and updates DOM elements */
 
+/* updateDOM function takes in input (string value) and id (to dertermine DOM location to update) and create and updates DOM elements */
 function updateDOM(input, id) {
     const divEl = document.querySelector(id);
     const p = document.createElement('p');
@@ -33,7 +23,6 @@ function updateDOM(input, id) {
 function trackMPGandCost(miles, gallons, price) {
     const MPG = Math.round(miles / gallons);
     const tripCost = Math.round(gallons * price);
-    updateDOM(`Miles per gallon is ${MPG} and trip cost is ${tripCost}`, '#output');
     return {
         miles: miles,
         gallons: gallons,

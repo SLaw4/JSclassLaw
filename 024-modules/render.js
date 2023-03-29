@@ -1,3 +1,4 @@
+import { saveTripData } from "./storage.js";
 const TBL_OUTPUT = document.getElementById('table-out');
 const FORM = document.getElementById('form-input');
 /* renderTableHeadings create the DOM structire of the table and loops over an array of heading strings to create the th (heading) for the table output */
@@ -30,8 +31,8 @@ function renderEditDelBtn(MY_DATA,index) {
     })
     delBtn.addEventListener('click', function(e){
        MY_DATA.splice(index, 1)
-       saveTripData()
-       renderTable()
+       saveTripData(MY_DATA)
+       renderTable(MY_DATA)
     }) 
     td.appendChild(editBtn);
     td.appendChild(delBtn);
