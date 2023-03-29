@@ -6,20 +6,25 @@ function updateDOM (input) {
 }
 
 // Global variables
-const protein = 'chicken'
-const isHungry = true
-const timeOfDay = 7
-const dayOfWeek = 'Friday'
-const money = 50
+const habit = 'read'
+const complete = true
+const days = 5
 
 // Conditional statement
-if ((dayOfWeek === 'Friday' && timeOfDay === 7) || isHungry) {
-  if (protein === 'chicken') {
-    const foodBudget = money/2
-    updateDOM(`Order chicken for 2 people using $${foodBudget}`);
-  } else if (protein === 'fish') {
-    updateDOM('Order sushi');
+// if (complete && habit === 'exercise' || days === 5) {
+//   updateDOM('Yay! You did it!')
+// } else {
+//   updateDOM('Time to get back on track')
+// }
+  
+
+// Function
+function sumOfHabits (habit, days) {
+  updateDOM(`Great job! You did ${habit} for ${days} days this week! `)
+  return {
+    habit: habit,
+    days: days,
   }
-} else {
-    updateDOM('Cook at home');
 }
+sumOfHabits('reading', 5)
+
