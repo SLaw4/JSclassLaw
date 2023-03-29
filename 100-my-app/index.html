@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CRUD app</title>
     <script src="main.js" defer></script>
 </head>
 <body>
-    <h1>Habit Tracker</h1>
+    <div>
+        <h1>Habit Tracker</h1>
+        <form id="form-input">
+            <labels><input id="habit" name="habit" type="text" placeholder="Enter habit"></labels>
+            <labels><input id="date" name="date" type="date" placeholder="Enter date"></labels>
+            <labels><input id="complete" name="complete" type="checkbox">Completed</labels>
+            <button>Submit</button>
+        </form>
+    </div>   
+    
     <div id="output"></div>
 </body>
 </html>

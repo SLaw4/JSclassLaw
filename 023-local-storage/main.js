@@ -13,7 +13,7 @@ function getTripData() {
         return []
     }
 }
-function saveTripData() {
+function saveTripData(MY_DATA) {
     localStorage.setItem('tripdata', JSON.stringify(MY_DATA))
 }
 const MY_DATA = getTripData()

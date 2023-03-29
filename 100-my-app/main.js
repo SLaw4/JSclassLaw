@@ -6,9 +6,10 @@ function updateDOM (input) {
 }
 
 // Global variables
-const habit = 'read'
-const complete = true
-const days = 5
+const HABIT = document.getElementById('habit')
+const COMPLETE = document.getElementById('complete')
+const DAYS = document.getElementById('days')
+const FORM = document.getElementById('form-input')
 
 // Conditional statement
 // if (complete && habit === 'exercise' || days === 5) {
@@ -19,12 +20,16 @@ const days = 5
   
 
 // Function
-function sumOfHabits (habit, days) {
-  updateDOM(`Great job! You did ${habit} for ${days} days this week! `)
+function sumOfHabits (habit) {
+  const logHabit = HABIT.value
+  updateDOM(`Great job! You completed ${logHabit} today!`)
   return {
     habit: habit,
-    days: days,
   }
 }
-sumOfHabits('reading', 5)
+//sumOfHabits('reading', 5)
 
+FORM.addEventListener('submit', (e) => {
+  e.preventDefault()
+  sumOfHabits(habit)
+})
