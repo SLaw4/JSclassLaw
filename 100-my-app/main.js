@@ -33,3 +33,4 @@ FORM.addEventListener('submit', (e) => {
   e.preventDefault()
   sumOfHabits(habit)
 })
+// updated commit 
