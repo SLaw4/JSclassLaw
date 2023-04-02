@@ -1,0 +1,32 @@
+import {renderTable} from "./render.js";
+import { getTripData, saveTripData } from "./storage.js";
+import { trackMPGandCost, calculateAvg, isFormValid, updateDOM } from "./calculateandupdate.js";
+/* Global const for updating DOM elements by their id */
+const FORM = document.getElementById('form-input');
+const ERR = document.getElementById('err');
+const AVG_OUTPUT = document.getElementById('output-avg');
+
+
+/* MY_DATA is global array that will be updated by the user with objects from form input values and calculate data */
+const MY_DATA = getTripData();
+renderTable(MY_DATA)
+
+/* Evenlisteners for form submit button, checks validation and if valid saves data as an object into global array name MY_DATA */
+
+FORM.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const miles = parseInt(e.target.miles.value);
+    const gallons = parseInt(e.target.gallons.value);
+    const price = parseInt(e.target.price.value);
+    const isValid = isFormValid(miles, gallons, price);
+    if (isValid) {
+        ERR.textContent = '';
+        AVG_OUTPUT.textContent = '';
+        const dataObj = trackMPGandCost(miles, gallons, price);
+        MY_DATA.push(dataObj);
+        saveTripData()
+        renderTable(MY_DATA, FORM);
+        calculateAvg(MY_DATA);
+    }
+    FORM.reset();
+});

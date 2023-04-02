@@ -8,7 +8,7 @@ function updateDOM (input) {
 // Global variables
 const HABIT = document.getElementById('habit')
 const COMPLETE = document.getElementById('complete')
-const DAYS = document.getElementById('days')
+const DATE = document.getElementById('date')
 const FORM = document.getElementById('form-input')
 
 // Conditional statement
@@ -22,7 +22,8 @@ const FORM = document.getElementById('form-input')
 // Function
 function sumOfHabits (habit) {
   const logHabit = HABIT.value
-  updateDOM(`Great job! You completed ${logHabit} today!`)
+  const todayDate = DATE.value
+  updateDOM(`Great job! You completed ${logHabit} on ${todayDate}!`)
   return {
     habit: habit,
   }
