@@ -38,10 +38,10 @@ function calculateAvg(MY_DATA) {
             tripCost: sum.tripCost + obj.tripCost
         } 
     })
-    const avgMPG = Number((sumMPG / numberOfObj).toFixed(2));
-    const avgTripCost = Number((sumTripCost / numberOfObj).toFixed(2));
-    updateDOM(`Average MPG is ${avgMPG}`, '#output-avg');
-    updateDOM(`Average trip cost is ${avgTripCost}`, '#output-avg');
+    const avgMPG = Number((sums.MPG / numberOfObj).toFixed(2));
+    const avgTripCost = Number((sums.TripCost / numberOfObj).toFixed(2));
+    updateDOM(`Average MPG is ${sums.MPG}`, '#output-avg');
+    updateDOM(`Average trip cost is ${sums.tripCost}`, '#output-avg');
 }
 
 /* isFormValid takes in miles, gallons, and price and does simple validation and returns boolean or truthy value back to eventlisteners */
