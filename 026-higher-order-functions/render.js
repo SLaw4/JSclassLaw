@@ -1,4 +1,5 @@
 import { saveTripData } from "./storage.js";
+import { calculateAvg } from "./calculateandupdate.js";
 const TBL_OUTPUT = document.getElementById('table-out');
 const FORM = document.getElementById('form-input');
 /* renderTableHeadings create the DOM structire of the table and loops over an array of heading strings to create the th (heading) for the table output */
@@ -66,5 +67,6 @@ function renderTable(MY_DATA) {
             tbl.appendChild(tr);
         });
     }
+    calculateAvg(MY_DATA);
 }
 export {renderTable}

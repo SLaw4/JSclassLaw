@@ -4,11 +4,12 @@ import { trackMPGandCost, calculateAvg, isFormValid, updateDOM } from "./calcula
 /* Global const for updating DOM elements by their id */
 const FORM = document.getElementById('form-input');
 const ERR = document.getElementById('err');
-const AVG_OUTPUT = document.getElementById('output-avg');
+
 
 
 /* MY_DATA is global array that will be updated by the user with objects from form input values and calculate data */
-const MY_DATA = getTripData();
+const MY_DATA = getTripData()
+
 renderTable(MY_DATA)
 
 /* Evenlisteners for form submit button, checks validation and if valid saves data as an object into global array name MY_DATA */
@@ -21,10 +22,10 @@ FORM.addEventListener('submit', (e) => {
     const isValid = isFormValid(miles, gallons, price);
     if (isValid) {
         ERR.textContent = '';
-        AVG_OUTPUT.textContent = '';
+        
         const dataObj = trackMPGandCost(miles, gallons, price);
         MY_DATA.push(dataObj);
-        saveTripData()
+        saveTripData(MY_DATA)
         renderTable(MY_DATA, FORM);
         calculateAvg(MY_DATA);
     }
