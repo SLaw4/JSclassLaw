@@ -23,23 +23,23 @@ class Person {
     this._address = newAddress
   }
   showStatus() {
-    console.log(`${this.getFirstName()} lives at ${this._address}`)
+    console.log(`${this.getFirstName()} lives at ${this.getAddress()}`)
   }
 }
 
 class Student extends Person {
     constructor(firstName, lastName, address, classList) {
         super(firstName, lastName, address)
-        this.classList = classList
+        this._classList = classList
     }
     getClassList () {
-        return `${this.classList}`
+        return `${this._classList}`
     }
     setClassList(newClassList) {
-        this.classList = newClassList
+        this._classList = newClassList
     }
     showStatus() {
-        console.log(`${this._firstName} lives at ${this._address} is taking ${this.classList}`)
+        console.log(`${this.getFirstName()} lives at ${this.getAddress()} is taking ${this.getClassList()}`)
     }
 }
 
