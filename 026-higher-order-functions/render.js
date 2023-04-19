@@ -63,7 +63,8 @@ function renderTable(MY_DATA) {
             tr.appendChild(btnTD);
             tbl.appendChild(tr);
         });
+        calculateAvg(MY_DATA);
     }
-    calculateAvg(MY_DATA);
+    
 }
 export {renderTable}
