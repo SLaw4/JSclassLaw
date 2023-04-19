@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <form id="form">
         <label for="">Type of Exercise</label>
-        <input name="type" type="text" required>
+        <input name="type" id="type" type="text" required>
         <label for="">Target Number of Reps</label>
-        <input name="reps" type="number" required>
-        <label for=""Time in Minutes></label>
-        <input name="time" type="number" steps="any" required>
+        <input name="reps" id="reps" type="number" required>
+        <label for="">Time in Minutes</label>
+        <input name="time" id="time" type="number" steps="any" required>
         <button>Submit</button>
     </form>
     <div id="output">
