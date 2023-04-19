@@ -1,18 +1,13 @@
 import {renderTable} from "./render.js";
 import { getTripData, saveTripData } from "./storage.js";
 import { trackMPGandCost, calculateAvg, isFormValid, updateDOM } from "./calculateandupdate.js";
+import {Trip} from "./trip.js"
+
 /* Global const for updating DOM elements by their id */
 const FORM = document.getElementById('form-input');
 const ERR = document.getElementById('err');
 
-/* Implement class into mileage program */
-class Mileage {
-    constructor(miles, gallons, price) {
-        this._miles = miles;
-        this._gallons = gallons;
-        this._price = price;
-    }
-}
+
 
 /* MY_DATA is global array that will be updated by the user with objects from form input values and calculate data */
 const MY_DATA = getTripData()
@@ -30,8 +25,8 @@ FORM.addEventListener('submit', (e) => {
     if (isValid) {
         ERR.textContent = '';
         
-        const dataObj = trackMPGandCost(miles, gallons, price);
-        MY_DATA.push(dataObj);
+        const trip = new Trip(miles, gallons, price);
+        MY_DATA.push(trip);
         saveTripData(MY_DATA)
         renderTable(MY_DATA, FORM);
         calculateAvg(MY_DATA);

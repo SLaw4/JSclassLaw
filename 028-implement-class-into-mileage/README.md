@@ -1,4 +1,4 @@
-# Week 12
+# Week 13
 
-# Higher Order Functions video
-Higher order function takes a function as a parameter OR returns a function. A function takes a parameter usually to perform some kind of operation on it or with it. Example: using array.filter() vs writing a for loop. Using higher order functions helps to simplify code, making it easier to read and modify. Combining higher order functions with first order functions helps to modularize code. 
+# what broke and how to fix?
+When I ran the code, I noticed the average MPG and trip cost resulted in NaN. My edit button also resulted in an error ('The specified value "undefined" cannot be parsed, or is out of range.'). My delete button seems to be working and I am still able to enter data and submit it. 

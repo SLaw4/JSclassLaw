@@ -16,14 +16,12 @@ function renderTableHeadings() {
     return tbl;
 }
 /* renderEditDelBtn the DOM creation of the buttons for handling edit and delete functionality in the table */
-function renderEditDelBtn(MY_DATA,index) {
+function renderEditDelBtn(MY_DATA, index) {
     const td = document.createElement('td');
     const editBtn = document.createElement('button');
     editBtn.textContent = 'edit';
     const delBtn = document.createElement('button');
     delBtn.textContent = 'delete';
-    // add eventlistener 
-    // for edit, reference the obj in the array for the current row in the table and populate the form input fields
     editBtn.addEventListener('click', function(e) {
         FORM[0].value = MY_DATA[index].miles
         FORM[1].value = MY_DATA[index].gallons
@@ -41,7 +39,6 @@ function renderEditDelBtn(MY_DATA,index) {
     }) 
     editBtn.classList.add('tbl-btn')
     delBtn.classList.add('tbl-btn')
-
     td.appendChild(editBtn);
     td.appendChild(delBtn);
     return td;
