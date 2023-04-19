@@ -1,8 +1,8 @@
 import { saveTripData } from "./storage.js";
 import { calculateAvg } from "./calculateandupdate.js";
-import {Trip} from "./trip.js"
 const TBL_OUTPUT = document.getElementById('table-out');
 const FORM = document.getElementById('form-input');
+
 /* renderTableHeadings create the DOM structire of the table and loops over an array of heading strings to create the th (heading) for the table output */
 function renderTableHeadings() {
     const tbl = document.createElement('table');
@@ -26,9 +26,9 @@ function renderEditDelBtn(MY_DATA,index) {
     // add eventlistener 
     // for edit, reference the obj in the array for the current row in the table and populate the form input fields
     editBtn.addEventListener('click', function(e) {
-        FORM[0].value = MY_DATA[index].miles
-        FORM[1].value = MY_DATA[index].gallons
-        FORM[2].value = MY_DATA[index].price
+        FORM[0].value = MY_DATA[index]._miles
+        FORM[1].value = MY_DATA[index]._gallons
+        FORM[2].value = MY_DATA[index]._price
         MY_DATA.splice(index, 1)
         const disable_btn = document.querySelectorAll('.tbl-btn')
         disable_btn.forEach(function(btn){
@@ -67,7 +67,8 @@ function renderTable(MY_DATA) {
             tr.appendChild(btnTD);
             tbl.appendChild(tr);
         });
+        calculateAvg(MY_DATA);
     }
-    calculateAvg(MY_DATA);
+    
 }
 export {renderTable}

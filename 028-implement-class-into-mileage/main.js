@@ -29,7 +29,7 @@ FORM.addEventListener('submit', (e) => {
         MY_DATA.push(trip);
         saveTripData(MY_DATA)
         renderTable(MY_DATA, FORM);
-        calculateAvg(MY_DATA);
+        
     }
     FORM.reset();
 });
