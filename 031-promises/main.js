@@ -38,36 +38,56 @@
 //     .then(onSuccess)
 //     .catch(onError)
 
-function fun1() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            reject('Bad data')
-        }, 100)
+// function fun1() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             reject('Bad data')
+//         }, 100)
+//     })
+// }
+
+// function fun2() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve('mustache man')
+//         }, 100)
+//     })
+// }
+
+// function onSuccess(data) {
+//     console.log(`Success: ${data}`)
+// }
+
+// function onError(errorCode) {
+//     console.log(`ERROR: ${errorCode}`)
+// }
+
+// function onFinally() {
+//     console.log('FINALLY WE BE DONE')
+// }
+
+// fun1()
+//     .then(fun2)
+//     .then(onSuccess)
+//     .catch(onError)
+//     .finally(onFinally)
+
+function fetchData() {
+    return new Promise(function(resolve, reject){
+        fetch('https://api.weather.gov.gridpoints/OKX/35,35/forecase')
+        .then(response => response.json())
+        .then(data => resolve(data.properties.periods[1].shortForecast));
     })
 }
 
-function fun2() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve('mustache man')
-        }, 100)
-    })
+function displayData(weather) {
+    console.log(weather)
 }
 
-function onSuccess(data) {
-    console.log(`Success: ${data}`)
+function onError(err) {
+    console.log(`ERROR ${err}`)
 }
 
-function onError(errorCode) {
-    console.log(`ERROR: ${errorCode}`)
-}
-
-function onFinally() {
-    console.log('FINALLY WE BE DONE')
-}
-
-fun1()
-    .then(fun2)
-    .then(onSuccess)
+fetchData()
+    .then(displayData)
     .catch(onError)
-    .finally(onFinally)
