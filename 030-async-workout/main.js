@@ -8,10 +8,12 @@ function updateDOM(message, el) {
 }
 
 function startWorkout(type, reps, time, fn) {
+    return new Promise(function() {
     fn(`Start ${type} <> Goal reps is ${reps}`, 'p')
     setTimeout(() => {
         fn(`Stop ${type}`, 'h1')
     }, time * 1000)
+    })
 }
 
 
@@ -23,3 +25,8 @@ formEL.addEventListener('submit', function(e) {
     startWorkout(type, reps, time, updateDOM)
     formEL.reset()
 })
+
+startWorkout()
+    .then(updateDOM)
+    .finally(formEL.addEventListener)
+    
