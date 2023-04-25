@@ -1,0 +1,2 @@
+# Week 15 Photo album challenge
+This challenge was indeed challenging. I was only able to get so far as grabbing all the image urls. As to how to insert the urls into the HTML, I tried all sorts of code and I feel like I am on the right path but also feel like I am all over the place. 
