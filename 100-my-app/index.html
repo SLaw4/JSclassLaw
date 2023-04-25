@@ -6,18 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD app</title>
     <script src="main.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
+    <div class="container">
         <h1>Habit Tracker</h1>
         <form id="form-input">
-            <labels><input id="habit" name="habit" type="text" placeholder="Enter habit"></labels>
-            <labels><input id="date" name="date" type="date" placeholder="Enter date"></labels>
-            <labels><input id="complete" name="complete" type="checkbox">Completed</labels>
-            <button>Submit</button>
-        </form>
-    </div>   
+            <input id="habit" name="habit" type="text" placeholder="Enter habit" required>
+            <input id="date" name="date" type="date" placeholder="Enter date" required>
+            <input id="complete" name="complete" type="checkbox">            
     
+        <div class="frequency">
+            <label for="time">Frequency</label>
+            <select name="time" id="time">
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Yearly">Yearly</option>
+            </select>
+        </div>
+        <input type="submit" value="Add Habit">
+        <button onclick="clearFields()">Clear</button>
+        </form>
+    </div>
     <div id="output"></div>
 </body>
 </html>
