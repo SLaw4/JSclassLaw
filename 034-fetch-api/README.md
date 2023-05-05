@@ -12,3 +12,6 @@ Yes I have been running my code using the live server extension. While I am codi
 -response object
 -recall that fetch is an asychronous operation that returns a promise that resolves into a response object
 -api tokens work like a password or signature in order to access certain apis
+-GET requests parameters, headers
+-error handling 
+-POST request
