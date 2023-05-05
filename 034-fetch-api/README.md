@@ -15,3 +15,6 @@ Yes I have been running my code using the live server extension. While I am codi
 -GET requests parameters, headers
 -error handling 
 -POST request
+-XmlHttpRequest(XHR)
+-HTTP request: a request from a client to a server, from a JavaScript app to a backend API, send and receive requests
+-why fetch? native support + docs, no installation required, modern features, modern syntax(Promise)
