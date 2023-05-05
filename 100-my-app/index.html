@@ -10,13 +10,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>Habit Tracker</h1>
+        <h1>Habit and Goal Tracker</h1>
         <form id="form-input">
-            <input id="habit" name="habit" type="text" placeholder="Enter habit" required>
-            <input id="date" name="date" type="date" placeholder="Enter date" required>
-            <input id="complete" name="complete" type="checkbox">            
+            <input id="habit" name="habit" type="text" pattern="[A-Za-z]+" placeholder="Enter habit" required>
+            <input id="goal" name="goal" type="number" placeholder="Enter goal duration" required>
+            <input id="startDate" name="startDate" type="date" placeholder="Enter start date" required>
+            <br> <br>
+            <input id="reward" name="reward" type="text" placeholder="Enter reward if goal is met" required>
+            <!-- <input id="complete" name="complete" type="checkbox">  Try and add to each individual habit???           -->
     
-        <!-- <div class="frequency">
+        <!-- <div class="frequency"> Associate frequency to certain habit and have it prompt when needs to be complete???
             <label for="time">Frequency</label>
             <select name="time" id="time">
                 <option value="Daily">Daily</option>
@@ -26,8 +29,8 @@
             </select>
         </div> -->
         <br> <br>
-        <input type="submit" value="Add New Habit">
-        <button onclick="">Log Habit</button>
+        <input type="submit" value="Start Goal">
+        <button onclick="">Log Habit</button> <!--Pulls up an existing log and allows user to check off and log goal progress-->
         <!-- <button onclick="clearFields()">Clear</button> -->
         </form>
     </div>
