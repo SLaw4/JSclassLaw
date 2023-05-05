@@ -11,3 +11,4 @@ Yes I have been running my code using the live server extension. While I am codi
 -Javascript will automatically set this up for you (unless you need to specify certain properties)
 -response object
 -recall that fetch is an asychronous operation that returns a promise that resolves into a response object
+-api tokens work like a password or signature in order to access certain apis
