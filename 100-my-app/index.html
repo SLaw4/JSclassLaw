@@ -7,16 +7,17 @@
     <title>CRUD app</title>
     <script src="main.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h1>Habit and Goal Tracker</h1>
         <form id="form-input">
-            <input id="habit" name="habit" type="text" pattern="[A-Za-z]+" placeholder="Enter habit" required>
-            <input id="goal" name="goal" type="number" placeholder="Enter goal duration" required>
-            <input id="startDate" name="startDate" type="date" placeholder="Enter start date" required>
+            Enter habit: <input id="habit" name="habit" type="text" pattern="[A-Za-z]+" placeholder="Ex. Exercise" required><br><br>
+            Enter goal duration: <input id="goal" name="goal" type="number" placeholder="Ex. 30 days" required> <br> <br>
+            Enter start date: <input id="startDate" name="startDate" type="date" required>
             <br> <br>
-            <input id="reward" name="reward" type="text" placeholder="Enter reward if goal is met" required>
+            Enter reward if goal is met: <input id="reward" name="reward" type="text" placeholder="Ex. Get ice cream" required>
             <!-- <input id="complete" name="complete" type="checkbox">  Try and add to each individual habit???           -->
     
         <!-- <div class="frequency"> Associate frequency to certain habit and have it prompt when needs to be complete???
@@ -29,11 +30,12 @@
             </select>
         </div> -->
         <br> <br>
-        <input type="submit" value="Start Goal">
-        <button onclick="">Log Habit</button> <!--Pulls up an existing log and allows user to check off and log goal progress-->
+        <input type="submit" value="Start Goal" class="button">
+        <button class="button" onclick="">Log Habit</button> <!--Pulls up an existing log and allows user to check off and log goal progress-->
         <!-- <button onclick="clearFields()">Clear</button> -->
         </form>
     </div>
     <div id="output"></div>
+    <div id="table-out"></div>
 </body>
 </html>

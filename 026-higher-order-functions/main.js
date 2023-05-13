@@ -26,7 +26,7 @@ FORM.addEventListener('submit', (e) => {
         const dataObj = trackMPGandCost(miles, gallons, price);
         MY_DATA.push(dataObj);
         saveTripData(MY_DATA)
-        renderTable(MY_DATA, FORM);
+        // renderTable(MY_DATA, FORM);
         calculateAvg(MY_DATA);
     }
     FORM.reset();

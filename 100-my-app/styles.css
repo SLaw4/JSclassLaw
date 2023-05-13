@@ -1,7 +1,33 @@
 .container {
-    color: blue;
+    color:cadetblue;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}
+table, th, td {
+    border: 3px solid purple; 
+    padding: 12px;
+    font-family: 'Oswald', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+}
+input {
+    padding: 8px;
+}
+  
+.tbl-btn {
+    border-radius: 8px;
+}
+#output {
     text-align: center;
 }
-/* .frequency {
-    padding: 5px;
-} */
+.button {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 9px;
+}
