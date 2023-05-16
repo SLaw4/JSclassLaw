@@ -1,0 +1,2 @@
+# WEEK 17 Typescript
+I used my local system to set up typescript which I did have some issues with but was able to resolve. Overall the experience was interesting but probably too advanced for my beginner brain to fully comprehend. 
