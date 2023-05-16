@@ -6,4 +6,10 @@ let album;
 myName = 'John';
 meaningOfLife = 42;
 isLoading = true;
-album = true;
+album = 5150;
+const sum = (a, b) => {
+    return a + b;
+};
+let postId;
+let isActive;
+let re = /\w+/g;
