@@ -18,10 +18,8 @@ function updateDOM (input) {
     divEl.appendChild(p)
 }
 function renderGoalHeadings() {
-  // const newGoalTable = document.createElement('td')
-  // const newCheckbox = document.createElement()
     const tbl = document.createElement('table');
-    const headings = ['Habit:', 'Start Date', 'Goal duration(30 days recommended):', 'Goal reward:' ,'Progress'];
+    const headings = ['Habit:', 'Start Date', 'Goal duration(30 days recommended):', 'Goal reward:' ,'Edit/Delete'];
     const tr = document.createElement('tr');
     headings.forEach(function (heading) {
         let th = document.createElement('th');
@@ -31,7 +29,6 @@ function renderGoalHeadings() {
     tbl.appendChild(tr);
     return tbl;
 } 
-
 
 function renderTable(MY_HABIT) {
   TBL_OUTPUT.innerHTML = '';
@@ -51,37 +48,62 @@ function renderTable(MY_HABIT) {
       });
   } 
 }
-// function renderEditDelBtn(index) {
-//   const td = document.createElement('td');
-//   const editBtn = document.createElement('button');
+function renderEditDelBtn(index) {
+  const td = document.createElement('td');
+  const editBtn = document.createElement('button');
   
-//   editBtn.textContent = 'edit';
-//   const delBtn = document.createElement('button');
-//   delBtn.textContent = 'delete';
-//   editBtn.addEventListener('click', function(e) {
-//       FORM[0].value = MY_HABIT[0].habit
-//       FORM[1].value = MY_HABIT[index].goal
-//       FORM[2].value = MY_HABIT[index].date
-//       FORM[3].value = MY_HABIT[index].reward
-//       MY_HABIT.splice(index, 1)
+  editBtn.textContent = 'edit';
+  const delBtn = document.createElement('button');
+  delBtn.textContent = 'delete';
+  editBtn.addEventListener('click', function(e) {
+      FORM[0].value = MY_HABIT[0].habit
+      FORM[1].value = MY_HABIT[index].goal
+      FORM[2].value = MY_HABIT[index].date
+      FORM[3].value = MY_HABIT[index].reward
+      MY_HABIT.splice(index, 1)
       
-//       const disable_btn = document.querySelectorAll('.tbl-btn')
-//       disable_btn.forEach(function(btn){
-//           btn.setAttribute('disabled', true)
-//       })
-//   })
-//   delBtn.addEventListener('click', function(e){
-//      MY_HABIT.splice(index, 1)
-//      renderTable(MY_HABIT)
-//   }) 
-//   editBtn.classList.add('tbl-btn')
-//   delBtn.classList.add('tbl-btn')
-//   td.appendChild(editBtn);
-//   td.appendChild(delBtn);
-//   return td;
+      const disable_btn = document.querySelectorAll('.tbl-btn')
+      disable_btn.forEach(function(btn){
+          btn.setAttribute('disabled', true)
+      })
+  })
+  delBtn.addEventListener('click', function(e){
+     MY_HABIT.splice(index, 1)
+     renderTable(MY_HABIT)
+  }) 
+  editBtn.classList.add('tbl-btn')
+  delBtn.classList.add('tbl-btn')
+  td.appendChild(editBtn);
+  td.appendChild(delBtn);
+  return td;
 
-// }
+}
 
+function renderCheckboxes() {
+  const rows = 1
+  const columns = parseInt(document.getElementById('goal').value)
+  const table = document.createElement('table')
+  for (let i = 0; i < rows; i++) {
+    const row = document.createElement('tr');
+
+    for (let j = 0; j < columns; j++) {
+      const cell = document.createElement('td');
+        const day = i * columns + j + 1;
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+
+        cell.appendChild(checkbox);
+        cell.appendChild(document.createTextNode(`Day ${day}`));
+        row.appendChild(cell);
+    }
+
+    table.appendChild(row);
+  }
+
+  // TBL_OUTPUT.innerHTML = '';
+  TBL_OUTPUT.appendChild(table);
+}
 // function ifCompleted() {
 //      Display message if completed or not (plus motivational text/quotes) 
 // }
@@ -119,8 +141,9 @@ FORM.addEventListener('submit', (e) => {
   if (isValid) {
     const dataObj = sumOfHabits(HABIT.value)
     MY_HABIT.push(dataObj)
-    renderGoalHeadings(MY_HABIT)
+    renderGoalHeadings()
     renderTable(MY_HABIT)
+    renderCheckboxes(MY_HABIT)
   }
   FORM.reset();
 })
