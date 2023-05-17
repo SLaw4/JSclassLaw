@@ -31,7 +31,15 @@ let evh = {
 };
 let jp = {
     name: 'Jimmy',
+    active: true,
     albums: ['I', 'II', 'IV']
 };
 evh = jp;
-const greetGuitarist = (guitarist) => ;
+const greetGuitarist = (guitarist) => {
+    if (guitarist.name) {
+        return `Hello ${guitarist.name.toUpperCase()}!`;
+    }
+    return 'Hello!';
+};
+console.log(greetGuitarist(jp));
+//Enums
