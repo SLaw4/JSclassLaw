@@ -19,7 +19,7 @@ function updateDOM (input) {
 }
 function renderGoalHeadings() {
     const tbl = document.createElement('table');
-    const headings = ['Habit:', 'Start Date', 'Goal duration(30 days recommended):', 'Goal reward:' ,'Edit/Delete'];
+    const headings = ['Habit:', 'Start Date', 'Goal duration(30 days recommended):', 'Goal reward:','Edit/Delete'];
     const tr = document.createElement('tr');
     headings.forEach(function (heading) {
         let th = document.createElement('th');
@@ -35,14 +35,14 @@ function renderTable(MY_HABIT) {
   if(MY_HABIT.length !== 0) {
       const tbl = renderGoalHeadings();
       TBL_OUTPUT.appendChild(tbl);
-      MY_HABIT.forEach(function (obj) {
+      MY_HABIT.forEach(function (obj, index) {
           const tr = document.createElement('tr');
           for (const key in obj) {
               let td = document.createElement('td');
               td.textContent = obj[key];
               tr.appendChild(td);
           }
-          const btnTD = renderEditDelBtn(MY_HABIT);
+          const btnTD = renderEditDelBtn(index);
           tr.appendChild(btnTD);
           tbl.appendChild(tr);
       });
@@ -56,12 +56,13 @@ function renderEditDelBtn(index) {
   const delBtn = document.createElement('button');
   delBtn.textContent = 'delete';
   editBtn.addEventListener('click', function(e) {
-      FORM[0].value = MY_HABIT[0].habit
+      FORM[0].value = MY_HABIT[index].habit
       FORM[1].value = MY_HABIT[index].goal
       FORM[2].value = MY_HABIT[index].date
       FORM[3].value = MY_HABIT[index].reward
       MY_HABIT.splice(index, 1)
-      
+      //MY_HABIT[index].message = `Great job! You started ${MY_HABIT[index].habit} on ${MY_HABIT[index].date} for a duration of ${MY_HABIT[index].goal} days!`
+      renderTable(MY_HABIT)
       const disable_btn = document.querySelectorAll('.tbl-btn')
       disable_btn.forEach(function(btn){
           btn.setAttribute('disabled', true)
@@ -80,30 +81,51 @@ function renderEditDelBtn(index) {
 }
 
 function renderCheckboxes() {
-  const rows = 1
-  const columns = parseInt(document.getElementById('goal').value)
-  const table = document.createElement('table')
+  const rows = 1;
+  const columns = parseInt(document.getElementById("goal").value);
+  const table = document.createElement("table");
   for (let i = 0; i < rows; i++) {
-    const row = document.createElement('tr');
+    const row = document.createElement("tr");
 
     for (let j = 0; j < columns; j++) {
-      const cell = document.createElement('td');
-        const day = i * columns + j + 1;
+      const cell = document.createElement("td");
+      const day = i * columns + j + 1;
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
 
-        cell.appendChild(checkbox);
-        cell.appendChild(document.createTextNode(`Day ${day}`));
-        row.appendChild(cell);
+      cell.appendChild(checkbox);
+      cell.appendChild(document.createTextNode(`Day ${day}`));
+      row.appendChild(cell);
     }
 
     table.appendChild(row);
   }
+  const checkboxes = table.querySelectorAll('input[type="checkbox"]');
+  let checkedCount = 0;
 
-  // TBL_OUTPUT.innerHTML = '';
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", function () {
+      if (this.checked) {
+        checkedCount++;
+      } else {
+        checkedCount--;
+      }
+      
+      counterCell.textContent = `Progress: ${checkedCount} days`;
+    });
+  });
+  const counterRow = document.createElement("tr");
+  const counterCell = document.createElement("td");
+  counterCell.colSpan = columns;
+  counterCell.textContent = `Progress: ${checkedCount} days`;
+  counterRow.appendChild(counterCell);
+  table.insertBefore(counterRow, table.firstChild);
+
   TBL_OUTPUT.appendChild(table);
 }
+
+
 // function ifCompleted() {
 //      Display message if completed or not (plus motivational text/quotes) 
 // }
@@ -116,13 +138,13 @@ function sumOfHabits () {
   const startDate = DATE.value
   const goalDuration = GOAL.value
   const goalReward = REWARD.value
-  const message = updateDOM(`Great job! You started ${logHabit} on ${startDate} for a duration of ${goalDuration} days!`)
+  const message = alert(`Great job! You started ${logHabit} on ${startDate} for a duration of ${goalDuration} days!`)
   return {
     habit: logHabit,
     date: startDate,
     goal: goalDuration,
     reward: goalReward,
-    // msg: message,
+    //msg: message,
   }
 }
 
