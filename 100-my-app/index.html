@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD app</title>
-    <script src="main.js" defer></script>
+    <script type="module" src="main.js" defer></script>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <h1>Habit and Goal Tracker</h1>
         <form id="form-input">
-            Enter habit: <input id="habit" name="habit" type="text" pattern="[A-Za-z]+" placeholder="Ex. Exercise" required><br><br>
-            Enter goal duration: <input id="goal" name="goal" type="number" placeholder="Ex. 30 days" required> <br> <br>
+            Enter habit: <input id="habit" name="habit" type="text" pattern="[A-Za-z]+" placeholder="Ex. Exercise"
+                required><br><br>
+            Enter goal duration: <input id="goal" name="goal" type="number" placeholder="Ex. 30 days" required> <br>
+            <br>
             Enter start date: <input id="startDate" name="startDate" type="date" required>
             <br> <br>
-            Enter reward if goal is met: <input id="reward" name="reward" type="text" placeholder="Ex. Get ice cream" required>
-            <!-- <input id="complete" name="complete" type="checkbox">  Try and add to each individual habit???           -->
-    
-        <br> <br>
-        <input type="submit" value="Start Goal" class="button">
+            Enter reward if goal is met: <input id="reward" name="reward" type="text" placeholder="Ex. Get ice cream"
+                required>
+
+            <br> <br>
+            <input type="submit" value="Start Goal" class="button">
         </form>
     </div>
     <div id="output"></div>
     <div id="table-out"></div>
     <div id="table-count"></div>
 </body>
+
 </html>
